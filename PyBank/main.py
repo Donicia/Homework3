@@ -20,6 +20,8 @@ Profit_Losses_Change = []
 for i in range(1, len(Profit_Losses)):
     Profit_Losses_Change.append(Profit_Losses[i] - Profit_Losses[i-1])
 
+    Average = round(sum(Profit_Losses_Change)/len(Profit_Losses_Change),2)
+print(Average)
 print(f"Average Revenue Change: ${sum(Profit_Losses_Change)/len(Profit_Losses_Change)}")
 
 #The greatest increase in profits (date and amount) over the entire period
@@ -32,7 +34,7 @@ print("Financial Analysis")
 print("----------------------------")
 print(f"Total Months: {len(date)}")
 print(f"Total Revenue: ${sum(Profit_Losses)}")
-print(f"Average Revenue Change: ${sum(Profit_Losses_Change)/len(Profit_Losses_Change)}")
+print(f"Average Revenue Change: ${Average}")
 print(f"Greatest Increase in Revenue: {date[Profit_Losses_Change.index(max(Profit_Losses_Change))+1]} (${max(Profit_Losses_Change)})")
 print(f"Greatest Decrease in Revenue: {date[Profit_Losses_Change.index(min(Profit_Losses_Change))+1]} (${min(Profit_Losses_Change)})\n")
 
@@ -44,7 +46,7 @@ lines = ("Financial Analysis")
 lines_22 = ("----------------------------")
 line_11 = (f"Total Months: {len(date)}")
 lines_1 = (f"Total Revenue: ${sum(Profit_Losses)}")
-lines_2 = (f"Average Revenue Change: ${sum(Profit_Losses_Change)/len(Profit_Losses_Change)}")
+lines_2 = (f"Average Revenue Change: ${Average}")
 lines_4 = (f"Greatest Increase in Revenue: {date[Profit_Losses_Change.index(max(Profit_Losses_Change))+1]} (${max(Profit_Losses_Change)})")
 lines_5 = (f"Greatest Decrease in Revenue: {date[Profit_Losses_Change.index(min(Profit_Losses_Change))+1]} (${min(Profit_Losses_Change)})\n")
 
