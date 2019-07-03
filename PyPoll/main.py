@@ -13,33 +13,54 @@ with open(election_data, newline="") as File:
     
     for row in csv_reader:
         votes = votes + 1
-    
-    #The total number of votes each candidate won
+    #The total number of votes each candidate won   
         Candidates[row[2]]+= 1
    #The percentage of votes each candidate won
     for Candidate in Candidates:
-        Candidates_Per[Candidate] = Candidates[Candidate]/votes
+        Candidates_Per[Candidate] = round(Candidates[Candidate]/votes,2)
 
-print("Election Results")
+        Winner = max(Candidates, key=lambda i:Candidates[i])
+
+
+print("Election Results") 
 print("-------------------------")
 print(f"Total Votes: {votes}")
 print("-------------------------")
 print(f"{Candidates}")
 print(f"{Candidates_Per}")
 print("-------------------------")
-print(f"Winner:{max(Candidates)}")
+print(f"Winner: {Winner}")
+print("-------------------------")
 
-output_file = r'C:\Users\donic\Desktop\Homework\Homework 3\Python Homework\PyPoll\election_data.txt'
+PyPoll = r'C:\Users\donic\Desktop\Homework\Homework 3\Python Homework\PyPoll\election_data.txt'
 
-with open(output_file) as txt_file:
-    
-    txt_file.write("Election Results")
-    txt_file.write("-------------------------")
-    txt_file.write("\n")
-    txt_file.write("{Candidates}")
-    txt_file.write("{Candidates_Per}")
-    txt_file.write("Total Votes " + str(votes))
-    txt_file.write("-------------------------")
-    txt_file.write("\n")
-    txt_file.write("Winner" + {max(Candidates)})
-    
+Line_1 = ("Election Results")
+Line_12 =("-------------------------")
+Line_2 = (f"Total Votes: {votes}")
+Line_22 = ("-------------------------")
+Line_3 = (f"{Candidates}")
+Line_4 = (f"{Candidates_Per}")
+Line_5 = ("-------------------------")
+Line_6 = (f"Winner:{Winner}")
+LIne_7 = ("-------------------------")
+
+
+
+with open("PyPoll.txt", "w") as output:
+    output.write(str(Line_1))
+    output.write('\n')
+    output.write(str(Line_12))
+    output.write('\n')
+    output.write(str(Line_2))
+    output.write('\n')
+    output.write(str(Line_22))
+    output.write('\n')
+    output.write(str(Line_3))
+    output.write('\n')
+    output.write(str(Line_4))
+    output.write('\n')
+    output.write(str(Line_5))
+    output.write('\n')
+    output.write(str(Line_6))
+    output.write('\n')
+    output.write(str(LIne_7))
