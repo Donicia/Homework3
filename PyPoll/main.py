@@ -7,6 +7,7 @@ votes = 0
 Candidate =[]
 Candidates = {"Khan":0,"Correy":0,"Li":0,"O'Tooley":0}
 Candidates_Per = {"Khan":0,"Correy":0,"Li":0,"O'Tooley":0}
+List = {"Khan", "Correy","Li","O'Tooley"}
 with open(election_data, newline="") as File:
     csv_reader = csv.reader(File)
     next(csv_reader)
@@ -15,9 +16,10 @@ with open(election_data, newline="") as File:
         votes = votes + 1
     #The total number of votes each candidate won   
         Candidates[row[2]]+= 1
+
    #The percentage of votes each candidate won
     for Candidate in Candidates:
-        Candidates_Per[Candidate] = round(Candidates[Candidate]/votes,2)
+        Candidates_Per[Candidate] = '{:.3%}'.format(Candidates[Candidate]/votes)
 
         Winner = max(Candidates, key=lambda i:Candidates[i])
 
